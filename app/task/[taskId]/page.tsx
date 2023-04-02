@@ -8,7 +8,7 @@ export default function Task({ params }: { params: { taskId: string } }) {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-    const url = `http://www.localhost:8000/api/tasks/${taskId}`;
+    const url = `${process.env.NEXT_PUBLIC_BE_URL}/api/tasks/${taskId}`;
     fetch(url)
       .then((response) => {
         if (response.ok) {

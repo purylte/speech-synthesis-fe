@@ -4,7 +4,7 @@ import { useEffect, useState } from "react";
 
 const speakers: string[] = [];
 for (let i = 0; i <= 108; i++) {
-  speakers.push(`http://www.localhost:8000/static/samples/${i}.wav`);
+  speakers.push(`${process.env.NEXT_PUBLIC_BE_URL}/static/samples/${i}.wav`);
 }
 
 export default function Home() {
@@ -67,7 +67,7 @@ export default function Home() {
   const handleSubmit = (event: { preventDefault: () => void }) => {
     event.preventDefault();
 
-    const url = "http://www.localhost:8000/api/generate";
+    const url = `${process.env.NEXT_PUBLIC_BE_URL}/api/generate`;
     const requestOptions = {
       method: "POST",
       headers: { "Content-Type": "application/json" },
